@@ -2,36 +2,24 @@ package com.example.aimusicplayer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.SyncStatusObserver;
-import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.speech.RecognitionListener;
-import android.speech.RecognizerIntent;
-import android.speech.SpeechRecognizer;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.Locale;
 
 
 public class MainActivity<implementation> extends AppCompatActivity {
@@ -105,26 +93,6 @@ public class MainActivity<implementation> extends AppCompatActivity {
         });
     }
 
-    //Code for settings menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mymenu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.item1:
-                Intent intent = new Intent(MainActivity.this, Settings.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
     //open another activity with swipe
     public boolean onTouchEvent(MotionEvent touchEvent) {
         switch (touchEvent.getAction()) {
@@ -136,7 +104,7 @@ public class MainActivity<implementation> extends AppCompatActivity {
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
                 if (x1 > x2) {
-                    Intent i = new Intent(MainActivity.this, MainActivity2.class);
+                    Intent i = new Intent(MainActivity.this, SongsListActivity.class);
                     startActivity(i);
                 }
                 break;
